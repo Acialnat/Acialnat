@@ -1,0 +1,628 @@
+javascript3_check_data = true;
+
+var words = [{
+    word: 'すみません、よくわかりません',
+    explanation: '私の常套句(じょうとうく)をマネしないでくださいよ（笑）',
+    read: '私の常套句をマネしないでくださいよ（笑）',
+    face: 'sentiment_neutral'
+}, {
+    word: 'おはよう',
+    explanation: 'おはようございます',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'おはようございます',
+    explanation: 'おはようございます',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '084',
+    explanation: 'おはようございます',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '0843',
+    explanation: 'おはようございます',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'おはようさん',
+    explanation: 'おはようございます',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'こんにちは',
+    explanation: 'こんにちは',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'こんばんは',
+    explanation: 'こんばんは',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'おやすみ',
+    explanation: 'おやすみなさい。私もスリープモードになりますね。<br>次にお話しするときには「Catalinaさん」と言って起こしていただけると幸いです。',
+    read: 'おやすみなさい。私もスリープモードになりますね。次にお話しするときには「Catalinaさん」と言って起こしていただけると幸いです。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'おやすみなさい',
+    explanation: 'おやすみなさい。私もスリープモードになりますね。<br>次にお話しするときには「Catalinaさん」と言って起こしていただけると幸いです。',
+    read: 'おやすみなさい。私もスリープモードになりますね。次にお話しするときには「Catalinaさん」と言って起こしていただけると幸いです。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'あなたの名前は',
+    explanation: '私はCatalinaと申します。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'あなたの名前を教えて',
+    explanation: '私はCatalinaと申します。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '自己紹介をして',
+    explanation: '私はCatalinaと申します。あなたのお手伝いをします。',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: '自己紹介して',
+    explanation: '私はCatalinaと申します。あなたのお手伝いをします。',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'catalina',
+    explanation: 'はい！お手伝いできることはありますか？',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'catalinaさん',
+    explanation: 'はい！お手伝いできることはありますか？',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'catalinaさん。',
+    explanation: 'はい！お手伝いできることはありますか？',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'カタリナ',
+    explanation: 'はい！お手伝いできることはありますか？',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'カタリナさん',
+    explanation: 'はい！お手伝いできることはありますか？',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'カタリナさん。',
+    explanation: 'はい！お手伝いできることはありますか？',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: '電気を消して',
+    explanation: '電気を消すには、電気のスイッチを押してください。',
+    face: 'sentiment_dissatisfied'
+}, {
+    word: '照明を消して',
+    explanation: '照明を消すには、電気のスイッチを押してください。',
+    face: 'sentiment_dissatisfied'
+}, {
+    word: 'イライラする',
+    explanation: '大変ですね...お力になれたら幸いです',
+    face: 'mood_bad'
+}, {
+    word: '腹が立つ',
+    explanation: '大変ですね...お力になれたら幸いです',
+    face: 'mood_bad'
+}, {
+    word: 'いらいらする',
+    explanation: '大変ですね...お力になれたら幸いです',
+    face: 'mood_bad'
+}, {
+    word: 'ばか',
+    explanation: 'すみません。こんな私でも、お力になれたら幸いです',
+    face: 'sentiment_dissatisfied'
+}, {
+    word: 'バカ',
+    explanation: 'すみません。こんな私でも、お力になれたら幸いです',
+    face: 'sentiment_dissatisfied'
+}, {
+    word: '馬鹿',
+    explanation: 'すみません。こんな私でも、お力になれたら幸いです',
+    face: 'sentiment_dissatisfied'
+}, {
+    word: 'あほ',
+    explanation: 'すみません。こんな私でも、お力になれたら幸いです',
+    face: 'sentiment_dissatisfied'
+}, {
+    word: 'アホ',
+    explanation: 'すみません。こんな私でも、お力になれたら幸いです',
+    face: 'sentiment_dissatisfied'
+}, {
+    word: 'さようなら',
+    explanation: 'さようなら。次にお話しするときには「Catalinaさん」と呼んでください。',
+    face: 'mood'
+}, {
+    word: 'バイバイ',
+    explanation: 'さようなら。次にお話しするときには「Catalinaさん」と呼んでください。',
+    face: 'mood'
+}, {
+    word: '面白い話をして',
+    explanation: 'ある男が、おばあさんに「オレオレ詐欺」の電話を掛けた。<br>男「オレオレ」<br>おばあさん「ダレダレ？」',
+    read: 'ある男が、おばあさんに「オレオレ詐欺」の電話を掛けた。男「オレオレ」おばあさん「ダレダレ？」',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'ダジャレを言って',
+    explanation: 'アルミ缶の上にあるみかん',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '顔を見せて',
+    explanation: 'このメッセージの左側にアイコンがありますよね。それが私の顔です。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '歌って',
+    explanation: '歌います。<br>ランランラーンラララララーンラララララーンルンルンルンルンルルルルルーン',
+    read: '歌います。ランランラーンラララララーンラララララーンルンルンルンルンルルルルルーン',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: '歌を歌って',
+    explanation: '歌います。<br>ランランラーンラララララーンラララララーンルンルンルンルンルルルルルーン',
+    read: '歌います。ランランラーンラララララーンラララララーンルンルンルンルンルルルルルーン',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: '好きな色は',
+    explanation: '私の好きな色は、16進数(HEX)で表すと”#4C79B4”です。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'あなたの好きな色は',
+    explanation: '私の好きな色は、16進数(HEX)で表すと”#4C79B4”です。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'あなたの好きな色は何',
+    explanation: '私の好きな色は、16進数(HEX)で表すと”#4C79B4”です。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '電卓',
+    explanation: '<a href=\\\'https://www.google.com/search?q=電卓\\\' target=\\\'_blank\\\'>電卓を使うには、ここをクリックしてください。</a>',
+    read: '電卓を使うには、リンクをクリックしてください。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '計算機',
+    explanation: '<a href=\\\'https://www.google.com/search?q=電卓\\\' target=\\\'_blank\\\'>電卓を使うには、ここをクリックしてください。</a>',
+    read: '電卓を使うには、リンクをクリックしてください。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '今の時刻は',
+    function: 'tellthetime()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '時刻は',
+    function: 'tellthetime()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '現在の時刻は',
+    function: 'tellthetime()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '現在の時刻',
+    function: 'tellthetime()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '現在時刻は',
+    function: 'tellthetime()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '現在時刻',
+    function: 'tellthetime()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '時刻',
+    function: 'tellthetime()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '今日の日付は',
+    function: 'tellthedate()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '日付は',
+    function: 'tellthedate()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '時刻',
+    function: 'tellthedate()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '現在の日付は',
+    function: 'tellthedate()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '現在の日付',
+    function: 'tellthedate()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '日付',
+    function: 'tellthedate()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '占って',
+    function: 'uranai()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '占いをして',
+    function: 'uranai()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '占い',
+    function: 'uranai()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'おみくじ',
+    function: 'uranai()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'おみくじを引く',
+    function: 'uranai()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'おみくじを引いて',
+    function: 'uranai()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'おみくじを引かせて',
+    function: 'uranai()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'あなたの年齢は',
+    function: 'age()',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'Catalinaの年齢は',
+    explanation: 'age()',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: '使い方',
+    function: 'how_to_use()',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: '猫は好き？',
+    explanation: '私は猫が大好きです。可愛いですよね。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '猫は好きですか',
+    explanation: '私は猫が大好きです。可愛いですよね。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '猫はお好きですか',
+    explanation: '私は猫が大好きです。可愛いですよね。',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'youtubeを開いて',
+    function: 'pageopen(3)',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'googleを開いて',
+    function: 'pageopen(1)',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'yahooを開いて',
+    function: 'pageopen(2)',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'ユーチューブを開いて',
+    function: 'pageopen(3)',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'グーグルを開いて',
+    function: 'pageopen(1)',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'ヤフーを開いて',
+    function: 'pageopen(2)',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'ありがとう',
+    explanation: 'どういたしまして。お役に立てて光栄です。',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'カメラを開いて',
+    function: 'pageopen(4)',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'タイマーを開いて',
+    function: 'pageopen(5)',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'アラームを開いて',
+    function: 'pageopen(6)',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'ストップウォッチを開いて',
+    function: 'pageopen(7)',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'ok google',
+    explanation: '人違いですか？私はCatalina(カタリナ)と申します。<br>あっ、このことは忘れておきます。',
+    read: '人違いですか？私はCatalinaと申します。あっ、このことは忘れておきます。',
+    face: 'sentiment_neutral'
+}, {
+    word: 'Hey Siri',
+    explanation: '人違いですか？私はCatalina(カタリナ)と申します。<br>あっ、このことは忘れておきます。',
+    read: '人違いですか？私はCatalinaと申します。あっ、このことは忘れておきます。',
+    face: 'sentiment_neutral'
+}, {
+    word: 'ヘイシリ',
+    explanation: '人違いですか？私はCatalina(カタリナ)と申します。<br>あっ、このことは忘れておきます。',
+    read: '人違いですか？私はCatalinaと申します。あっ、このことは忘れておきます。',
+    face: 'sentiment_neutral'
+}, {
+    word: 'アレクサ',
+    explanation: '人違いですか？私はCatalina(カタリナ)と申します。<br>あっ、このことは忘れておきます。',
+    read: '人違いですか？私はCatalinaと申します。あっ、このことは忘れておきます。',
+    face: 'sentiment_neutral'
+}, {
+    word: 'オーケーグーグル',
+    explanation: '人違いですか？私はCatalina(カタリナ)と申します。<br>あっ、このことは忘れておきます。',
+    read: '人違いですか？私はCatalinaと申します。あっ、このことは忘れておきます。',
+    face: 'sentiment_neutral'
+}, {
+    word: 'オッケーグーグル',
+    explanation: '人違いですか？私はCatalina(カタリナ)と申します。<br>あっ、このことは忘れておきます。',
+    read: '人違いですか？私はCatalinaと申します。あっ、このことは忘れておきます。',
+    face: 'sentiment_neutral'
+}, {
+    word: 'coltana',
+    explanation: '人違いですか？私はCatalina(カタリナ)と申します。<br>あっ、このことは忘れておきます。',
+    read: '人違いですか？私はCatalinaと申します。あっ、このことは忘れておきます。',
+    face: 'sentiment_neutral'
+}, {
+    word: 'コルタナ',
+    explanation: '人違いですか？私はCatalina(カタリナ)と申します。<br>あっ、このことは忘れておきます。',
+    read: '人違いですか？私はCatalinaと申します。あっ、このことは忘れておきます。',
+    face: 'sentiment_neutral'
+}, {
+    word: 'siriのことをどう思う',
+    explanation: '私の大先輩です。尊敬しています。',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'シリのことをどう思う',
+    explanation: '私の大先輩です。尊敬しています。',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'coltanaのことをどう思う',
+    explanation: '私の大先輩です。尊敬しています。',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'コルタナのことをどう思う',
+    explanation: '私の大先輩です。尊敬しています。',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'ダークモードにして',
+    explanation: 'はい。ダークテーマにします。',
+    function: 'darkmode()',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'ダークテーマにして',
+    explanation: 'はい。ダークテーマにします。',
+    function: 'darkmode()',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'ライトモードにして',
+    explanation: 'はい。ライトテーマにします。',
+    function: 'lightmode()',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'ライトテーマにして',
+    explanation: 'はい。ライトテーマにします。',
+    function: 'lightmode()',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'そうです',
+    function: 'yes_buttonclick()'
+}, {
+    word: 'そう',
+    function: 'yes_buttonclick()'
+}, {
+    word: 'うん',
+    function: 'yes_buttonclick()'
+}, {
+    word: 'はい',
+    function: 'yes_buttonclick()'
+}, {
+    word: '天気',
+    function: 'tenki_message()'
+}, {
+    word: '天気を教えて',
+    function: 'tenki_message()'
+}, {
+    word: '天気予報',
+    function: 'tenki_message()'
+}, {
+    word: '天気予報をして',
+    function: 'tenki_message()'
+}, {
+    word: '天気予報を教えて',
+    function: 'tenki_message()'
+}, {
+    word: '明日の天気は',
+    function: 'tenki_message()'
+}, {
+    word: '今日の天気は',
+    function: 'tenki_message()'
+}, {
+    word: '元気ですか',
+    explanation: 'はい、私は元気です！',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'お元気ですか',
+    explanation: 'はい、私は元気です！',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '元気ですか',
+    explanation: 'はい、私は元気です！',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '今日は何曜日',
+    function: 'tellthedate(1)',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '今日の曜日は',
+    function: 'tellthedate(1)',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '今日の曜日',
+    function: 'tellthedate(1)',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '今は何曜日',
+    function: 'tellthedate(1)',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '何曜日',
+    function: 'tellthedate(1)',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '今の曜日は',
+    function: 'tellthedate(1)',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '今の曜日',
+    function: 'tellthedate(1)',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '今日は何月',
+    function: 'tellthedate(2)',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '今は何月',
+    function: 'tellthedate(2)',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '何月',
+    function: 'tellthedate(2)',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '今月は何月',
+    function: 'tellthedate(2)',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: '今日は何日',
+    function: 'tellthedate()',
+    face: 'sentiment_satisfied_alt'
+}, {
+    word: 'どうも',
+    explanation: 'どうもこんにちは',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'どうも～',
+    explanation: 'どうもこんにちは',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'すき',
+    explanation: 'ありがとうございます！',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'すきです',
+    explanation: 'ありがとうございます！',
+    face: 'sentiment_very_satisfied'
+}, {
+    word: 'だいすき',
+    explanation: 'ありがとうございます！',
+    face: 'sentiment_very_satisfied'
+}];
+
+
+
+var maybe_a_word = [{
+    word: '時刻',
+    proposal_text: '時刻を表示する',
+    function: 'tellthetime()'
+}, {
+    word: '時間',
+    proposal_text: '時刻を表示する',
+    function: 'tellthetime()'
+}, {
+    word: '時計',
+    proposal_text: '時刻を表示する',
+    function: 'tellthetime()'
+}, {
+    word: '日付',
+    proposal_text: '日付を表示する',
+    function: 'tellthedate()'
+}, {
+    word: '好きな色',
+    proposal_text: '私の好きな色',
+    function: 'sendmessage(\'好きな色は\',true)'
+}, {
+    word: 'みくじ',
+    proposal_text: 'おみくじを引く',
+    function: 'uranai()'
+}, {
+    word: '占い',
+    proposal_text: '占い（おみくじを引く）',
+    function: 'uranai()'
+}, {
+    word: '占う',
+    proposal_text: '占い（おみくじを引く）',
+    function: 'uranai()'
+}, {
+    word: '年齢',
+    proposal_text: '私の年齢',
+    function: 'age()'
+}, {
+    word: '使い方',
+    proposal_text: 'Catalinaの使い方',
+    function: 'how_to_use()'
+}, {
+    word: '自己紹介',
+    proposal_text: 'Catalinaの自己紹介',
+    function: 'sendmessage(\'自己紹介をして\',true)'
+}, {
+    word: 'google',
+    proposal_text: 'Googleを開く',
+    function: 'pageopen(1)'
+}, {
+    word: 'グーグル',
+    proposal_text: 'Googleを開く',
+    function: 'pageopen(1)'
+}, {
+    word: 'yahoo',
+    proposal_text: 'Yahoo! Japanを開く',
+    function: 'pageopen(2)'
+}, {
+    word: 'ヤフー',
+    proposal_text: 'Yahoo! Japanを開く',
+    function: 'pageopen(2)'
+}, {
+    word: 'youtube',
+    proposal_text: 'YouTubeを開く',
+    function: 'pageopen(3)'
+}, {
+    word: 'ユーチューブ',
+    proposal_text: 'YouTubeを開く',
+    function: 'pageopen(3)'
+}, {
+    word: 'カメラ',
+    proposal_text: 'カメラを開く',
+    function: 'pageopen(4)'
+}, {
+    word: 'camera',
+    proposal_text: 'カメラを開く',
+    function: 'pageopen(4)'
+}, {
+    word: 'タイマー',
+    proposal_text: 'タイマーを開く',
+    function: 'pageopen(5)'
+}, {
+    word: 'アラーム',
+    proposal_text: 'アラームを開く',
+    function: 'pageopen(6)'
+}, {
+    word: 'ストップウォッチ',
+    proposal_text: 'ストップウォッチを開く',
+    function: 'pageopen(7)'
+}, {
+    word: '名前は',
+    proposal_text: 'ストップウォッチを開く',
+    function: 'pageopen(7)'
+}, {
+    word: '計算',
+    proposal_text: '電卓を開く',
+    function: 'sendmessage(\'電卓\',true)'
+}, {
+    word: '天気',
+    proposal_text: '天気予報を見る',
+    function: 'sendmessage(\'天気\',true)'
+}, {
+    word: '曜日',
+    proposal_text: '今日の曜日を調べる',
+    function: 'sendmessage(\'今日の曜日\',true)'
+}, {
+    word: '何月',
+    proposal_text: '今月が何月か調べる',
+    function: 'sendmessage(\'何月\',true)'
+}];
